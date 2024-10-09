@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Parking Partner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome to your Dashboard</h1>
+        <ul class="menu-list">
+            <li><a href="#" onclick="viewProfile()">View Profile</a></li>
+            <li><a href="#" onclick="bookSpot()">Book a Spot</a></li>
+            <li><a href="#">Vehicle Details</a></li>
+            <li><a href="#">Get Premium</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function viewProfile() {
+            fetch('/profile')
+                .then(response => response.json())
+                .then(data => {
+                    alert(`Username: ${data.username}\nEmail: ${data.email}\nContact: ${data.contact}`);
+                });
+        }
+
+        function bookSpot() {
+            window.location.href = 'bookSpot.html';
+        }
+    </script>
+</body>
+</html>
